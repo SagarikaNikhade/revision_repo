@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD-WEB-101</title>
+</head>
+<body>
+    <h1>CRUD Operation</h1>
+</body>
+</html>
+
+<script>
+    let url = "https://restcountries.com/v3.1/all";
+    let Data=[];
+
+  async function getData(){
+    try{
+        let data = await fetch(url)
+        // console.log(data)
+     let out = await data.json()
+    Data = out
+    //  console.log("data",Data)
+    }catch(err){
+        console.log(err)
+    }
+   }
+
+   getData()
+
+   
+</script>
