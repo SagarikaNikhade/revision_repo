@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <link rel="stylesheet" href="styles/skeleton.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="columns eight">
+          <h1>Todo App</h1>
+          <p>Cute little app</p>
+        </div>
+
+        <div class="columns four">
+          <p>Welcome, <span id="welcome-username" class="muted italic">anonymous</span>!</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="columns four sidebar-one" id="sidebar-one">
+
+          <h4>Log in an existing User</h4>
+          <input type="text" id="login-user-username" class="u-full-width" placeholder="username" />
+          <input type="password" id="login-user-passowrd" class="u-full-width" placeholder="password" />
+          <button id="login-user" class="u-full-width button button-primary">Login User</button>
+          <div class="muted">
+            hint: use <code>admin</code> as both username & password.
+          </div>
+          <hr>
+
+          <h4>Fetch & Display Data</h4>
+          <button id="fetch-recipes" class="u-full-width button button-primary">Fetch Recipes</button>
+          <hr>
+
+
+          <h4>Sort Based On Price</h4>
+          <button
+            id="sort-low-to-high"
+            class="u-full-width button button-primary"
+          >
+            Sort Low To High
+          </button>
+          <button
+            id="sort-high-to-low"
+            class="u-full-width button button-primary"
+          >
+            Sort High To Low
+          </button>
+          <hr />
+
+          <h4>Filter Based On Price</h4>
+          <button
+            id="filter-less-than-50"
+            class="u-full-width button button-primary"
+          >
+            less than 250
+          </button>
+          <button
+            id="filter-more-than-equal-50"
+            class="u-full-width button button-primary"
+          >
+            more than or equal 250
+          </button>
+
+
+          <hr />
+
+          <h4>Edit Recipe Price</h4>
+          <input type="text" id="edit-recipe-input-id" class="u-full-width" placeholder="recipe id" />
+          <input type="number" id="edit-recipe-input-price" class="u-full-width" placeholder="price" />
+          <button id="edit-recipe-button" class="u-full-width button button-primary">Edit Price</button>
+          <hr>
+        </div>
+
+        <div class="columns eight main">
+          <div class="notifications-wrapper" id="notifications-wrapper"></div>
+          <div class="data-list-wrapper" id="data-list-wrapper">
+            You need an auth token to access & display recipes.
+          </div>
+          <div class="pagination-wrapper" id="pagination-wrapper"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./scripts/main.js" type="module"></script>
+  </body>
+</html>
