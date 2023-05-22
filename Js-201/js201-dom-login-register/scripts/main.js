@@ -25,25 +25,13 @@ let empImgInput = document.getElementById("employee-image");
 let empDeptInput = document.getElementById("employee-dept");
 let empSalaryInput = document.getElementById("employee-salary");
 let empCreateBtn = document.getElementById("add-employee");
+// Sorting
 let sortAtoZBtn = document.getElementById("sort-low-to-high");
 let sortZtoABtn = document.getElementById("sort-high-to-low");
 let catsData = [];
 let foodData = [];
 let empData = [];
-// login
-let loginUserUsername = document.getElementById("login-user-username");
-let loginUserPassword = document.getElementById("login-user-passowrd");
-let loginUserButton = document.getElementById("login-user");
 
-// Register
-let registerUserUsername = document.getElementById("register-user-username");
-let registerUserFirstname = document.getElementById("register-user-firstname");
-let registerUserLastname = document.getElementById("register-user-lastname");
-let registerUserEmail = document.getElementById("register-user-email");
-let registerUserPassowrd = document.getElementById("register-user-passowrd");
-let registerUserAvatar = document.getElementById("register-user-avatar");
-let registerUserLevel = document.getElementById("register-user-level");
-let registerUserButton = document.getElementById("register-user");
 
 // Start code from here
 
@@ -65,7 +53,7 @@ function renderCardList(cardData) {
   let cardList = `
   <div class="card-list">
   ${cardData.map(item => 
-    getCard(item.title, item.description, item.linkText, item.linkUrl, item.imageUrl)).join(' ')
+    getCard(item.title, item.description, item.linkText, item.linkUrl, item.imageUrl,item.salary)).join(' ')
   }
   </div>
 `
@@ -73,7 +61,7 @@ function renderCardList(cardData) {
 
 }
 
-function getCard(title,desc,linkText,linkUrl,imageUrl){
+function getCard(title,desc,linkText,linkUrl,imageUrl,salary){
   let card=`
   <div class="card">
   <div class="card_img">
@@ -81,6 +69,7 @@ function getCard(title,desc,linkText,linkUrl,imageUrl){
   </div>
   <div class="card_body">
   <h3 class="card_item card_title">${title}</h3>
+  <h3 class="card_item card_title">${salary}</h3>
   <div class="card_item card_description">${desc}</div>
   <a href=${linkUrl} class="card_item card_link">${linkText}</a>
   </div>
@@ -176,10 +165,12 @@ function fetchAndRenderEmployee(){
     console.log(data);
 
     let empObj = data.map(el=>({
-      name : el.name,
-      img : el.image,
-      dept : el.department,
-      sal : el.salary
+      title : el.name,
+      imageUrl:`${baseServerURL}${el.image}`,
+      description : el.department,
+      salary : el.salary,
+      linkText : "Read more",
+      linkUrl : 'https://google.com',
     }))
    empData = empObj
    renderCardList(empData)
@@ -212,3 +203,137 @@ let employeesData = [];
 
 //   })
 // }
+
+
+// Sort by Salary
+
+sortAtoZBtn.addEventListener("click",()=>{
+  if(empData && empData.length){
+    empData.sort((a,b)=>{
+      return a.salary-b.salary;
+    })
+    console.log(empData)
+    renderCardList(empData)
+  }else{
+    alert("Something wrong!!")
+  }
+})
+
+
+sortZtoABtn.addEventListener("click",()=>{
+  if(empData && empData.length){
+    empData.sort((a,b)=>{
+      return b.salary-a.salary;
+    })
+    console.log(empData)
+    renderCardList(empData)
+  }else{
+    alert("Something wrong!!")
+  }
+})
+
+// Filtering
+
+let filterLessThan1L = document.querySelector("#filter-less-than-1L");
+filterLessThan1L.addEventListener("click",()=>{
+  if(empData && empData.length){
+    let lessempData = empData.filter(el=>
+      el.salary < 100000
+    )
+    console.log(lessempData)
+    renderCardList(lessempData)
+  }
+})
+
+let filterMoreThanEqual1L = document.querySelector("#filter-more-than-equal-1L");
+filterMoreThanEqual1L.addEventListener("click",()=>{
+  if(empData && empData.length){
+    let moreempData = empData.filter(el=>
+      el.salary >= 100000
+    )
+    console.log(moreempData)
+    renderCardList(moreempData)
+  }
+})
+
+
+// Register the User
+
+let registerUserUsername = document.getElementById("register-user-username");
+let registerUserFirstname = document.getElementById("register-user-firstname");
+let registerUserLastname = document.getElementById("register-user-lastname");
+let registerUserEmail = document.getElementById("register-user-email");
+let registerUserPassowrd = document.getElementById("register-user-passowrd");
+let registerUserAvatar = document.getElementById("register-user-avatar");
+let registerUserLevel = document.getElementById("register-user-level");
+let registerUserButton = document.getElementById("register-user");
+
+registerUserButton.addEventListener("click",()=>{
+  let username = registerUserUsername.value;
+  let firstname = registerUserFirstname.value;
+  let lastname = registerUserLastname.value;
+  let email = registerUserEmail.value;
+  let password = registerUserPassowrd.value;
+  let avatar = registerUserAvatar.value;
+  let userLevel = registerUserLevel.value;
+
+  let userObj ={
+    username,firstname,lastname,email,password,avatar,userLevel
+  }
+  registerUser(userObj)
+})
+
+function registerUser(userObj){
+  fetch(userRegisterURL,{
+    method : 'POST',
+    headers: {
+      'Content-Type':'application/json'
+    },
+    body:JSON.stringify(userObj)
+  })
+  .then((res)=>{
+    return res.json()
+  })
+  .then((data)=>{
+    console.log(data);
+   })
+}
+
+
+// login
+let loginUserUsername = document.getElementById("login-user-username");
+let loginUserPassword = document.getElementById("login-user-passowrd");
+let loginUserButton = document.getElementById("login-user");
+
+loginUserButton.addEventListener("click",async()=>{
+  let username = loginUserUsername.value;
+  let password = loginUserPassword.value;
+  let userObj = {
+    username,password
+  };
+
+     loginUser(userObj)
+     
+    let data = await res.json();
+    console.log("login ", data);
+    localStorage.setItem("localAccessToken", data.accessToken);
+    localStorage.setItem("userId", data.user.id)
+    alert("user successfully logged in.");
+  
+})
+
+function loginUser(userObj){
+  fetch(userLoginURL,{
+    method : 'POST',
+    headers: {
+      'Content-Type':'application/json'
+    },
+    body:JSON.stringify(userObj)
+  })
+  .then((res)=>{
+    return res.json()
+  })
+  .then((data)=>{
+    console.log(data);
+   })
+}
