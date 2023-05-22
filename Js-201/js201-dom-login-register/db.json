@@ -866,6 +866,16 @@
       "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/762.jpg",
       "createdAt": 1670501273378,
       "id": 54
+    },
+    {
+      "username": "kallu",
+      "password": "$2b$10$xhddzsQSSQfcxtMVAZlUJuBxNrmo5xO/uMiiNrnCxAYKc01D4A5Ka",
+      "email": "kallu@gmail.com",
+      "firstname": "kallumai",
+      "lastname": "kaleshwari",
+      "avatar": "https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/762.jpg",
+      "createdAt": 1684740331296,
+      "id": 55
     }
   ],
   "posts": [
@@ -65802,14 +65812,14 @@
       "name": "Abram Langtry",
       "image": "/images/avatar/avatar1.jpeg",
       "department": 1,
-      "salary": "500"
+      "salary": 5000
     },
     {
       "id": 2,
       "name": "Flossy Arrell",
       "image": "/images/avatar/avatar1.jpeg",
       "department": 2,
-      "salary": 20000
+      "salary": 200
     },
     {
       "id": 3,
@@ -65846,7 +65856,7 @@
       "id": "4FjVtmfUYz",
       "name": "Anand Kumar",
       "image": "/images/avatar/avatar2.jpeg",
-      "salary": "1000000"
+      "salary": 1000000
     },
     {
       "name": "Ajay Singh",
@@ -65881,46 +65891,12 @@
       "id": "D5JbNmVesV"
     },
     {
-      "id": "ITuKVyKr7G",
-      "name": "sagarika",
-      "image": "/images/avatar/avatar2.jpeg",
-      "salary": "90000000"
-    },
-    {
-      "empName": "sonu nick",
-      "empImg": "https://tse2.mm.bing.net/th/id/OIP.yQEiX1G4fnkXWcUQB2kSHgHaE3?w=299&h=196&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-      "empDept": "2",
-      "empSal": "40000",
-      "createdAt": 1684510380856,
-      "id": "D0fsko6bKf"
-    },
-    {
-      "empName": "rano xyz",
-      "empImg": "https://tse2.mm.bing.net/th/id/OIP.yQEiX1G4fnkXWcUQB2kSHgHaE3?w=299&h=196&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-      "empDept": "3",
-      "empSal": "50000",
-      "createdAt": 1684510530286,
-      "id": "BLvmt1748o"
-    },
-    {
-      "empName": "sonu nick",
-      "empImg": "https://tse2.mm.bing.net/th/id/OIP.yQEiX1G4fnkXWcUQB2kSHgHaE3?w=299&h=196&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-      "empDept": "2",
-      "empSal": "500000000",
-      "createdAt": 1684510817048,
-      "id": "qIpcOGukD9"
-    },
-    {
-      "createdAt": 1684510817071,
-      "id": "6xsKUBMQs8"
-    },
-    {
-      "name": "yogita",
-      "image": "https://tse4.mm.bing.net/th/id/OIP.4Kbilsy9w_6UnUO2exETEAHaE7?w=298&h=198&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-      "department": "4",
-      "salary": "60000",
-      "createdAt": 1684511768292,
-      "id": "uFDk3OC7TY"
+      "name": "Ram Pothneni",
+      "image": "/images/avatar/avatar1.jpeg",
+      "department": "1",
+      "salary": "120000000000000",
+      "createdAt": 1684729163395,
+      "id": "2U1ec4RBDo"
     }
   ],
   "departments": [
